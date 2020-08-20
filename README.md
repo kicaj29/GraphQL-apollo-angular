@@ -149,8 +149,8 @@ generates:
 
 [books.graphql](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.graphql)
 
-```
-query {
+```graphql
+query BooksQuery {
     books {
       nodes {
         id
@@ -160,3 +160,11 @@ query {
   }
 ```
 
+### Generate angular apollo service for the created query
+```
+npm run gql:codegen:integrationWithHotchocolateApp
+```
+
+It will create 2 new files (but they are not stored in git):
+* ./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/generated/types.graphql-gen.ts
+* ./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.graphql-gen.ts - **this file contains angular apollo service**
