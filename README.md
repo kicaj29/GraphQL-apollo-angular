@@ -63,3 +63,9 @@ About to write to D:\GitHub\kicaj29\GraphQL-apollo-angular\apolloV1-angular-exam
 ```
 Run the command to create file [integrationWithHotchocolateApp.schema.graphql](./apolloV1-angular-examples/integrationWithHotchocolateApp.schema.graphql) with the schema.
 
+
+### Add [GraphQL Codegen](https://graphql-code-generator.com/)
+Plugin [Type Script Apollo Angular](https://graphql-code-generator.com/docs/plugins/typescript-apollo-angular) allows generate code for apollo services which next can be used in DI mechanism.
+```
+npm install @graphql-codegen/cli@1.13.1 -D
+```
