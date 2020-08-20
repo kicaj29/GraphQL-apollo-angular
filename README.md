@@ -104,3 +104,11 @@ It will create new command and it will add new packages to ```package.json```
 "@graphql-codegen/typescript-apollo-angular": "1.13.1"
 ```
 Run npm install to install these packages.
+
+### Add ```*.graphql-gen.ts``` to ```.gitignore```
+
+It is good practice to not store generated type script files ```*.graphql-gen.ts``` in repository. Then typical workflow for CI works like this:
+
+* developer on demand updates schema.graphql.
+* developer runs npm run gql:codegen to generate new angular apollo services based on the new schema and created ```*.graphql``` files. If everything on local branch works fine then updated schema can be pushed to the remote branch.
+* CI once again generates all ```*.graphql-gen.ts``` (because they do not exist in the repo) and in this way can make sure that everything compiles and all possible tests still pass with the new updated schema.
