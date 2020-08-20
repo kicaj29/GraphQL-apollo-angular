@@ -5,5 +5,12 @@ generates:
   projects/integrationWithHotchocolateApp/src/generated/types.graphql-gen.ts:
     plugins:
       - "typescript"
+  projects/integrationWithHotchocolateApp/src/generated:
+    preset: near-operation-file
+    presetConfig:
+      extension: .graphql-gen.ts
+      baseTypesPath: types.graphql-gen.ts
+    plugins:
+      - "typescript"
       - "typescript-operations"
       - "typescript-apollo-angular"
