@@ -120,6 +120,25 @@ npm install @graphql-codegen/near-operation-file-preset@1.13.1 -D
 
 Next update [integrationWithHotchocolateApp.codegen.yml](./apolloV1-angular-examples/integrationWithHotchocolateApp.codegen.yml):
 
+```yml
+overwrite: true
+schema: "integrationWithHotchocolateApp.schema.graphql"
+documents: "projects/**/*.graphql"
+generates:
+  projects/integrationWithHotchocolateApp/src/generated/types.graphql-gen.ts:
+    plugins:
+      - "typescript"
+  projects/integrationWithHotchocolateApp/src/generated:
+    preset: near-operation-file
+    presetConfig:
+      extension: .graphql-gen.ts
+      baseTypesPath: types.graphql-gen.ts
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-apollo-angular"
+```
+
 ## First example
 
 ### Create books component that will display books received from GraphQL endpoint.
