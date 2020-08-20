@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "integrationWithHotchocolateApp": {
+      "schemaPath": "integrationWithHotchocolateApp.schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "local": "http://localhost:37926"
+        }
+      }
+    }
+  }
+}

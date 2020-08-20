@@ -1,5 +1,8 @@
 # apolloV1-angular-examples: integrationWithHotchocolateApp
 
+## Introduction
+This project is integrated with backend from this [repo](https://github.com/kicaj29/GraphQL-hotchocolate).
+
 ## Project initialization
 
 ### Add [apollo client](https://www.apollographql.com/docs/angular/basics/setup/)
@@ -24,3 +27,34 @@ It will install the following packages:
 ```
 npm install graphql-cli@3.0.14 -D
 ```
+
+### Generate [.graphqlconfig](./.graphqlconfig) file
+```
+PS D:\GitHub\kicaj29\GraphQL-apollo-angular\apolloV1-angular-examples> npx graphql init
+? Enter project name (Enter to skip): integrationWithHotchocolateApp
+? Local schema file path: integrationWithHotchocolateApp.schema.graphql
+? Endpoint URL (Enter to skip): http://localhost:37926
+? Name of this endpoint, for e.g. default, dev, prod: local
+? Subscription URL (Enter to skip):
+? Do you want to add other endpoints? No
+? What format do you want to save your config in? JSON
+
+About to write to D:\GitHub\kicaj29\GraphQL-apollo-angular\apolloV1-angular-examples\.graphqlconfig:
+
+{
+  "projects": {
+    "integrationWithHotchocolateApp": {
+      "schemaPath": "integrationWithHotchocolateApp.schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "local": "http://localhost:37926"
+        }
+      }
+    }
+  }
+}
+
+? Is this ok? Yes
+```
+
+
