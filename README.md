@@ -23,7 +23,7 @@ It will install the following packages:
 "graphql": "^14.6.0"
 ```
 
-### Add [graphql-cli](https://github.com/Urigo/graphql-cli)
+### Add [graphql-cli](https://github.com/Urigo/graphql-cli/tree/v3.0.14)
 ```
 npm install graphql-cli@3.0.14 -D
 ```
@@ -57,4 +57,9 @@ About to write to D:\GitHub\kicaj29\GraphQL-apollo-angular\apolloV1-angular-exam
 ? Is this ok? Yes
 ```
 
+### Command for copying graphql schema locally
+```
+"gql:update-schema:hotchocolate:local": "graphql get-schema -p integrationWithHotchocolateApp -e local"
+```
+Run the command to create file [integrationWithHotchocolateApp.schema.graphql](./apolloV1-angular-examples/integrationWithHotchocolateApp.schema.graphql) with the schema.
 
