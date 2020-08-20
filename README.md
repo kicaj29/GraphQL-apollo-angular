@@ -112,3 +112,10 @@ It is good practice to not store generated type script files ```*.graphql-gen.ts
 * developer on demand updates schema.graphql.
 * developer runs npm run gql:codegen to generate new angular apollo services based on the new schema and created ```*.graphql``` files. If everything on local branch works fine then updated schema can be pushed to the remote branch.
 * CI once again generates all ```*.graphql-gen.ts``` (because they do not exist in the repo) and in this way can make sure that everything compiles and all possible tests still pass with the new updated schema.
+
+## First example
+
+### Create books component that will display books received from GraphQL endpoint.
+
+[books](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.component.ts)
+
