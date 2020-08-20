@@ -69,3 +69,38 @@ Plugin [Type Script Apollo Angular](https://graphql-code-generator.com/docs/plug
 ```
 npm install @graphql-codegen/cli@1.13.1 -D
 ```
+
+### Initialize graphql-codegen
+```
+PS D:\GitHub\kicaj29\GraphQL-apollo-angular\apolloV1-angular-examples> npx graphql-codegen init
+
+    Welcome to GraphQL Code Generator!
+    Answer few questions and we will setup everything for you.
+
+? What type of application are you building? Application built with Angular
+? Where is your schema?: (path or url) integrationWithHotchocolateApp.schema.graphql
+? Where are your operations and fragments?: projects/**/*.graphql
+? Pick plugins: TypeScript (required by other typescript plugins), TypeScript Operations (operations and fragments), TypeScript Apollo Angular (typed GQL services)
+? Where to write the output: projects/integrationWithHotchocolateApp/src/generated/types.graphql-gen.ts
+? Do you want to generate an introspection file? No
+? How to name the config file? integrationWithHotchocolateApp.codegen.yml
+? What script in package.json should run the codegen? gql:codegen:integrationWithHotchocolateApp
+
+    Config file generated at integrationWithHotchocolateApp.codegen.yml
+
+      $ npm install
+
+    To install the plugins.
+
+      $ npm run gql:codegen:integrationWithHotchocolateApp
+
+    To run GraphQL Code Generator.
+```
+
+It will create new command and it will add new packages to ```package.json```
+```
+"@graphql-codegen/typescript": "1.13.1",
+"@graphql-codegen/typescript-operations": "1.13.1",
+"@graphql-codegen/typescript-apollo-angular": "1.13.1"
+```
+Run npm install to install these packages.
