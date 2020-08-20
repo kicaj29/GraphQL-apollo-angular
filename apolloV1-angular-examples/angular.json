@@ -1,0 +1,128 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "integrationWithHotchocolateApp": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/integrationWithHotchocolateApp",
+      "sourceRoot": "projects/integrationWithHotchocolateApp/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/integrationWithHotchocolateApp",
+            "index": "projects/integrationWithHotchocolateApp/src/index.html",
+            "main": "projects/integrationWithHotchocolateApp/src/main.ts",
+            "polyfills": "projects/integrationWithHotchocolateApp/src/polyfills.ts",
+            "tsConfig": "projects/integrationWithHotchocolateApp/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/integrationWithHotchocolateApp/src/favicon.ico",
+              "projects/integrationWithHotchocolateApp/src/assets"
+            ],
+            "styles": [
+              "projects/integrationWithHotchocolateApp/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/integrationWithHotchocolateApp/src/environments/environment.ts",
+                  "with": "projects/integrationWithHotchocolateApp/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "integrationWithHotchocolateApp:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "integrationWithHotchocolateApp:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "integrationWithHotchocolateApp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/integrationWithHotchocolateApp/src/test.ts",
+            "polyfills": "projects/integrationWithHotchocolateApp/src/polyfills.ts",
+            "tsConfig": "projects/integrationWithHotchocolateApp/tsconfig.spec.json",
+            "karmaConfig": "projects/integrationWithHotchocolateApp/karma.conf.js",
+            "assets": [
+              "projects/integrationWithHotchocolateApp/src/favicon.ico",
+              "projects/integrationWithHotchocolateApp/src/assets"
+            ],
+            "styles": [
+              "projects/integrationWithHotchocolateApp/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/integrationWithHotchocolateApp/tsconfig.app.json",
+              "projects/integrationWithHotchocolateApp/tsconfig.spec.json",
+              "projects/integrationWithHotchocolateApp/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/integrationWithHotchocolateApp/e2e/protractor.conf.js",
+            "devServerTarget": "integrationWithHotchocolateApp:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "integrationWithHotchocolateApp:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "defaultProject": "integrationWithHotchocolateApp"
+}
