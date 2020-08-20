@@ -2,7 +2,7 @@
 
 ## Project initialization
 
-## Add [apollo client](https://www.apollographql.com/docs/angular/basics/setup/)
+### Add [apollo client](https://www.apollographql.com/docs/angular/basics/setup/)
 ```
 ng add apollo-angular@1.9.1
 ```
@@ -18,4 +18,9 @@ It will install the following packages:
 "apollo-cache-inmemory": "^1.6.0",
 "graphql-tag": "^2.10.0",
 "graphql": "^14.6.0"
+```
+
+### Add [graphql-cli](https://github.com/Urigo/graphql-cli)
+```
+npm install graphql-cli@3.0.14 -D
 ```
