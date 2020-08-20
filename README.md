@@ -145,3 +145,18 @@ generates:
 
 [books](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.component.ts)
 
+### Create simple query
+
+[books.graphql](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.graphql)
+
+```
+query {
+    books {
+      nodes {
+        id
+        title
+      }
+    }
+  }
+```
+

@@ -1,0 +1,8 @@
+query {
+    books {
+      nodes {
+        id
+        title
+      }
+    }
+  }
