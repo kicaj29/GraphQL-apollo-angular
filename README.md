@@ -168,3 +168,15 @@ npm run gql:codegen:integrationWithHotchocolateApp
 It will create 2 new files (but they are not stored in git):
 * ./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/generated/types.graphql-gen.ts
 * ./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.graphql-gen.ts - **this file contains angular apollo service**
+  ```ts
+    @Injectable({
+        providedIn: 'root'
+    })
+    export class BooksQueryGQL extends Apollo.Query<BooksQueryQuery, BooksQueryQueryVariables> {
+        document = BooksQueryDocument;    
+    }
+  ```
+
+  ### Use generated angular apollo service
+
+  [books.component.ts](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.component.ts) uses ```BooksQueryGQL``` service.
