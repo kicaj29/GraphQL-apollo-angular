@@ -1,5 +1,6 @@
 <p>books works!</p>
-
+<button (click)="useCacheFirst()">test</button>
+<button (click)="resetCache()">resetCache</button>
 <div *ngFor="let title of titles$ | async">
   {{ title }}
 </div>

@@ -6,3 +6,14 @@ query BooksQuery {
       }
     }
   }
+
+  query BooksQueryAllSimpleFields {
+    books {
+      nodes {
+        id
+        title
+        price
+        authorId
+      }
+    }
+  }

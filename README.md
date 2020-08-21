@@ -180,3 +180,12 @@ It will create 2 new files (but they are not stored in git):
   ### Use generated angular apollo service
 
   [books.component.ts](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.component.ts) uses ```BooksQueryGQL``` service.
+
+  ## Apollo cache
+
+  There are [five cache policies](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980):
+  * cache-first (default)
+  * cache-and-network
+  * network-only
+  * no-cache
+  * cache-only
