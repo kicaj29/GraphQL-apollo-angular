@@ -1,6 +1,15 @@
 <p>books works!</p>
-<button (click)="useCacheFirst()">test</button>
+<button (click)="useCacheFirst()">useCacheFirst</button>
+<button (click)="useFetch()">useFetch</button>
+<br/>
+<br/>
+<button (click)="useCacheAndNetwork1()">useCacheAndNetwork1</button>
+<button (click)="useCacheAndNetwork2()">useCacheAndNetwork2</button>
+<button (click)="useCacheAndNetwork3()">useCacheAndNetwork3</button>
+<br>
+<br/>
 <button (click)="resetCache()">resetCache</button>
+<button (click)="unsubscribeAll()">unsubscribeAll</button>
 <div *ngFor="let title of titles$ | async">
   {{ title }}
 </div>

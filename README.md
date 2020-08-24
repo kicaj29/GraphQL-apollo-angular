@@ -177,15 +177,24 @@ It will create 2 new files (but they are not stored in git):
     }
   ```
 
-  ### Use generated angular apollo service
+### Use generated angular apollo service
 
-  [books.component.ts](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.component.ts) uses ```BooksQueryGQL``` service.
+[books.component.ts](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.component.ts) uses ```BooksQueryGQL``` service.
 
-  ## Apollo cache
+## fetch vs watch
+* fetch is executed only once
+* watch can be executed multiple times e.g. when watched data in the cache are updated
+  
+## Apollo cache
 
-  There are [five cache policies](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980):
-  * cache-first (default)
-  * cache-and-network
-  * network-only
-  * no-cache
-  * cache-only
+Cache in apollo is normalized. It is flat list of records. Thx to this there is no issue with data consistency (e.g. related data are referenced via foreign key). [Article](https://relay.dev/docs/en/thinking-in-graphql#caching-a-graph) about it.
+
+
+There are [five cache policies](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980):
+* cache-first (default) - if data are available in the cache then returns data from the cache, if not available in the cache then request is sent and cache is updated when    
+  response is retrieved
+* cache-and-network - request to the server is sent always even if data is available in the cache. It makes sure that data in the cache is up to date after every request.
+* network-only
+* no-cache
+* cache-only
+* standby

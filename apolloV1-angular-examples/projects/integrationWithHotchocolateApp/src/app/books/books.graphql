@@ -13,7 +13,8 @@ query BooksQuery {
         id
         title
         price
-        authorId
+        authorId,
+        timeStamp
       }
     }
   }
