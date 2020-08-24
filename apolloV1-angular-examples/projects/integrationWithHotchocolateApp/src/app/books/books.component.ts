@@ -48,6 +48,14 @@ export class BooksComponent implements OnInit, OnDestroy   {
     this.cacheExamples.useCacheAndNetwork3();
   }
 
+  useNetworkOnly1(){
+    this.cacheExamples.useNetworkOnly1();
+  }
+
+  useNetworkOnly2(){
+    this.cacheExamples.useNetworkOnly2();
+  }
+
   useCacheFirst() {
     this.cacheExamples.useCacheFirst();
   }

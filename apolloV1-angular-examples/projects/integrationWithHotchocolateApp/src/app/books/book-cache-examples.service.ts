@@ -32,7 +32,7 @@ export class BookCacheExampleService {
   const sub = this.booksService.watch({}, {
     fetchPolicy: 'cache-and-network'
   }).valueChanges.subscribe(val => {
-    console.log(`---FIRST WATCH: ${val.networkStatus}---`);
+    console.log(`---FIRST WATCH (cache-and-network): ${val.networkStatus}---`);
     if (val.networkStatus === NetworkStatus.ready) {
       const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}`);
       sa.forEach(s => console.log(s));
@@ -45,7 +45,7 @@ export class BookCacheExampleService {
   const sub = this.booksServiceAllSimpleFields.watch({}, {
     fetchPolicy: 'cache-and-network'
   }).valueChanges.subscribe(val => {
-    console.log(`---SECOND WATCH: ${val.networkStatus}---`);
+    console.log(`---SECOND WATCH (cache-and-network): ${val.networkStatus}---`);
     if (val.networkStatus === NetworkStatus.ready) {
       const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
       sa.forEach(s => console.log(s));
@@ -58,7 +58,33 @@ export class BookCacheExampleService {
   const sub = this.booksServiceAllSimpleFields.watch({}, {
     fetchPolicy: 'cache-and-network'
   }).valueChanges.subscribe(val => {
-    console.log(`---THIRD WATCH: ${val.networkStatus}---`);
+    console.log(`---THIRD WATCH (cache-and-network): ${val.networkStatus}---`);
+    if (val.networkStatus === NetworkStatus.ready) {
+      const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
+      sa.forEach(s => console.log(s));
+    }
+  });
+  this.subscriptions.push(sub);
+ }
+
+ useNetworkOnly1() {
+  const sub = this.booksServiceAllSimpleFields.watch({}, {
+    fetchPolicy: 'network-only'
+  }).valueChanges.subscribe(val => {
+    console.log(`---FIRST WATCH (network-only): ${val.networkStatus}---`);
+    if (val.networkStatus === NetworkStatus.ready) {
+      const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
+      sa.forEach(s => console.log(s));
+    }
+  });
+  this.subscriptions.push(sub);
+ }
+
+ useNetworkOnly2() {
+  const sub = this.booksServiceAllSimpleFields.watch({}, {
+    fetchPolicy: 'network-only'
+  }).valueChanges.subscribe(val => {
+    console.log(`---SECOND WATCH (network-only): ${val.networkStatus}---`);
     if (val.networkStatus === NetworkStatus.ready) {
       const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
       sa.forEach(s => console.log(s));

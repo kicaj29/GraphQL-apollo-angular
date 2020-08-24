@@ -190,11 +190,12 @@ It will create 2 new files (but they are not stored in git):
 Cache in apollo is normalized. It is flat list of records. Thx to this there is no issue with data consistency (e.g. related data are referenced via foreign key). [Article](https://relay.dev/docs/en/thinking-in-graphql#caching-a-graph) about it.
 
 
-There are [five cache policies](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980):
-* cache-first (default) - if data are available in the cache then returns data from the cache, if not available in the cache then request is sent and cache is updated when    
+There are [six cache policies](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980):
+* **cache-first (default)** - if data are available in the cache then returns data from the cache, if not available in the cache then request is sent and cache is updated when    
   response is retrieved
-* cache-and-network - request to the server is sent always even if data is available in the cache. It makes sure that data in the cache is up to date after every request.
-* network-only
-* no-cache
-* cache-only
-* standby
+* **cache-and-network** - request to the server is sent always even if data is available  in the cache. It makes sure that data in the cache is up to date after every request and next returns fresh data from the cache.
+  >NOTE: it looks that it works differently then in the [medium article described](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980). **If data is available in the cache it is not immediately returned but it is returned after cache update! MAYBE IT IS BUG???**
+* **network-only** - it looks that it works exactly the same way as **cache-and-network**. Requires further investigation. Maybe that problem is DateTime type, should be also checked for integer.
+* **no-cache**
+* **cache-only**
+* **standby**
