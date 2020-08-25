@@ -1,5 +1,5 @@
 # source: http://localhost:37926
-# timestamp: Mon Aug 24 2020 15:08:00 GMT+0200 (czas środkowoeuropejski letni)
+# timestamp: Tue Aug 25 2020 12:13:25 GMT+0200 (czas środkowoeuropejski letni)
 
 """The cost directives is used to express the complexity of a field."""
 directive @cost(
@@ -100,7 +100,7 @@ type Book {
   authorId: Int!
   id: ID
   price: Decimal
-  timeStamp: DateTime
+  timeStamp: String
   title: String
 }
 
@@ -165,18 +165,16 @@ input BookFilter {
   price_not_in: [Decimal!]
   price_not_lt: Decimal
   price_not_lte: Decimal
-  timeStamp: DateTime
-  timeStamp_gt: DateTime
-  timeStamp_gte: DateTime
-  timeStamp_in: [DateTime!]
-  timeStamp_lt: DateTime
-  timeStamp_lte: DateTime
-  timeStamp_not: DateTime
-  timeStamp_not_gt: DateTime
-  timeStamp_not_gte: DateTime
-  timeStamp_not_in: [DateTime!]
-  timeStamp_not_lt: DateTime
-  timeStamp_not_lte: DateTime
+  timeStamp: String
+  timeStamp_contains: String
+  timeStamp_ends_with: String
+  timeStamp_in: [String]
+  timeStamp_not: String
+  timeStamp_not_contains: String
+  timeStamp_not_ends_with: String
+  timeStamp_not_in: [String]
+  timeStamp_not_starts_with: String
+  timeStamp_starts_with: String
   title: String
   title_contains: String
   title_ends_with: String
@@ -193,7 +191,7 @@ input BookInput {
   authorId: Int!
   id: Int!
   price: Decimal!
-  timeStamp: DateTime!
+  timeStamp: String
   title: String
 }
 
@@ -202,9 +200,6 @@ input CreateBookInput {
   price: Decimal!
   title: String
 }
-
-"""The `DateTime` scalar represents an ISO-8601 compliant date time type."""
-scalar DateTime
 
 """The built-in `Decimal` scalar type."""
 scalar Decimal

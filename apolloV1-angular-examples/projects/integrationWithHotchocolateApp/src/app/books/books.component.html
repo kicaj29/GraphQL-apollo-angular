@@ -12,6 +12,14 @@
 <button (click)="useNetworkOnly2()">useNetworkOnly2</button>
 <br/>
 <br/>
+<button (click)="useNoCache1()">useNoCache1</button>
+<button (click)="useNoCache2()">useNoCache2</button>
+<br/>
+<br/>
+<button (click)="useCacheOnly1()">useCacheOnly1</button>
+<button (click)="useCacheOnly2()">useCacheOnly2</button>
+<br/>
+<br/>
 <button (click)="resetCache()">resetCache</button>
 <button (click)="unsubscribeAll()">unsubscribeAll</button>
 <div *ngFor="let title of titles$ | async">

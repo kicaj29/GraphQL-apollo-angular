@@ -64,4 +64,20 @@ export class BooksComponent implements OnInit, OnDestroy   {
     this.cacheExamples.useFetch();
   }
 
+  useNoCache1() {
+    this.cacheExamples.useNoCache1();
+  }
+
+  useNoCache2() {
+    this.cacheExamples.useNoCache2();
+  }
+
+  useCacheOnly1() {
+    this.cacheExamples.useCacheOnly1();
+  }
+
+  useCacheOnly2() {
+    this.cacheExamples.useCacheOnly2();
+  }
+
 }

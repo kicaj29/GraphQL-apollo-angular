@@ -193,9 +193,11 @@ Cache in apollo is normalized. It is flat list of records. Thx to this there is 
 There are [six cache policies](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980):
 * **cache-first (default)** - if data are available in the cache then returns data from the cache, if not available in the cache then request is sent and cache is updated when    
   response is retrieved
-* **cache-and-network** - request to the server is sent always even if data is available  in the cache. It makes sure that data in the cache is up to date after every request and next returns fresh data from the cache.
-  >NOTE: it looks that it works differently then in the [medium article described](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980). **If data is available in the cache it is not immediately returned but it is returned after cache update! MAYBE IT IS BUG???**
-* **network-only** - it looks that it works exactly the same way as **cache-and-network**. Requires further investigation. Maybe that problem is DateTime type, should be also checked for integer.
-* **no-cache**
-* **cache-only**
-* **standby**
+* **cache-and-network** - immediately returns data if they are available in the cache, next sends request to the server always even if data is available in the cache. It makes sure that data in the cache is up to date after every request and next returns fresh data from the cache.
+  >:warning: it looks that it works differently then in the [medium article described](https://medium.com/@galen.corey/understanding-apollo-fetch-policies-705b5ad71980). **If data is available in the cache it is not immediately returned but it is returned after cache update! MAYBE IT IS BUG in the used version???**
+* **network-only** - first request is always sent to the server, **next cache is updated** and finally data are returned from the cache. It works exactly the same way as bugged version of  **cache-and-network**.
+* **no-cache** - cache is not used at all. All data are always retrieved from GraphQL endpoint.
+* **cache-only** - there no network communication at all. If the data are in the cache then it is returned if not then error if thrown.
+* **standby** - only for queries that aren't actively watched, but should be available for refetch and updateQueries.
+
+More about fetch policies [here](https://github.com/apollographql/apollo-client/blob/f08ab2a6d39ca12b1618a1fcabd468fe2a1fb055/src/core/watchQueryOptions.ts#L9).

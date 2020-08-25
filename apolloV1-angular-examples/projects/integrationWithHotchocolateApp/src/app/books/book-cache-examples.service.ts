@@ -93,6 +93,58 @@ export class BookCacheExampleService {
   this.subscriptions.push(sub);
  }
 
+ useNoCache1() {
+  const sub = this.booksServiceAllSimpleFields.watch({}, {
+    fetchPolicy: 'no-cache'
+  }).valueChanges.subscribe(val => {
+    console.log(`---FIRST WATCH (no-cache): ${val.networkStatus}---`);
+    if (val.networkStatus === NetworkStatus.ready) {
+      const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
+      sa.forEach(s => console.log(s));
+    }
+  });
+  this.subscriptions.push(sub);
+ }
+
+ useNoCache2() {
+  const sub = this.booksServiceAllSimpleFields.watch({}, {
+    fetchPolicy: 'no-cache'
+  }).valueChanges.subscribe(val => {
+    console.log(`---SECOND WATCH (no-cache): ${val.networkStatus}---`);
+    if (val.networkStatus === NetworkStatus.ready) {
+      const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
+      sa.forEach(s => console.log(s));
+    }
+  });
+  this.subscriptions.push(sub);
+ }
+
+ useCacheOnly1() {
+  const sub = this.booksServiceAllSimpleFields.watch({}, {
+    fetchPolicy: 'cache-only'
+  }).valueChanges.subscribe(val => {
+    console.log(`---FIRST WATCH (no-cache): ${val.networkStatus}---`);
+    if (val.networkStatus === NetworkStatus.ready) {
+      const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
+      sa.forEach(s => console.log(s));
+    }
+  });
+  this.subscriptions.push(sub);
+ }
+
+ useCacheOnly2() {
+  const sub = this.booksServiceAllSimpleFields.watch({}, {
+    fetchPolicy: 'cache-only'
+  }).valueChanges.subscribe(val => {
+    console.log(`---SECOND WATCH (no-cache): ${val.networkStatus}---`);
+    if (val.networkStatus === NetworkStatus.ready) {
+      const sa = val.data.books.nodes.map(n => `id: ${n.id}, title: ${n.title}, price: ${n.price}, authorId: ${n.authorId}, timeStamp: ${n.timeStamp}`);
+      sa.forEach(s => console.log(s));
+    }
+  });
+  this.subscriptions.push(sub);
+ }
+
  useFetch() {
   const sub = this.booksServiceAllSimpleFields.fetch({}, {
     fetchPolicy: 'cache-first'
