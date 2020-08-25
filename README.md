@@ -1,3 +1,22 @@
+- [apolloV1-angular-examples: integrationWithHotchocolateApp](#apollov1-angular-examples-integrationwithhotchocolateapp)
+  - [Introduction](#introduction)
+  - [Project initialization](#project-initialization)
+    - [Add apollo client](#add-apollo-client)
+    - [Add graphql-cli](#add-graphql-cli)
+    - [Generate .graphqlconfig file](#generate-graphqlconfig-file)
+    - [Command for copying graphql schema locally](#command-for-copying-graphql-schema-locally)
+    - [Add GraphQL Codegen](#add-graphql-codegen)
+    - [Initialize graphql-codegen](#initialize-graphql-codegen)
+    - [Add ```*.graphql-gen.ts``` to ```.gitignore```](#add-graphql-gents-to-gitignore)
+    - [Storing apollo services in dedicated file next to ```*.graphql``` file](#storing-apollo-services-in-dedicated-file-next-to-graphql-file)
+  - [First example](#first-example)
+    - [Create books component that will display books received from GraphQL endpoint.](#create-books-component-that-will-display-books-received-from-graphql-endpoint)
+    - [Create simple query](#create-simple-query)
+    - [Generate angular apollo service for the created query](#generate-angular-apollo-service-for-the-created-query)
+    - [Use generated angular apollo service](#use-generated-angular-apollo-service)
+  - [fetch vs watch](#fetch-vs-watch)
+  - [Apollo cache](#apollo-cache)
+
 # apolloV1-angular-examples: integrationWithHotchocolateApp
 
 ## Introduction
