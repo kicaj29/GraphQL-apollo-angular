@@ -7,14 +7,31 @@ query BooksQuery {
     }
   }
 
-  query BooksQueryAllSimpleFields {
-    books {
-      nodes {
-        id
-        title
-        price
-        authorId,
-        timeStamp
-      }
+query BooksQueryAllSimpleFields {
+  books {
+    nodes {
+      id
+      title
+      price
+      authorId
+      timeStamp
     }
   }
+}
+
+subscription onReviewSubscription {
+  onReview {
+    commentary
+    stars
+    bookId
+  }
+}
+
+subscription onReviewWithBookIdSubscription {
+  onReviewWithBookId(bookId: 5) {
+    commentary
+    stars
+    bookId
+  }
+}
+

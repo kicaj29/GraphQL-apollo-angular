@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy, InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BookCacheExampleService } from './book-cache-examples.service';
+import { BookSubscriptionsExampleService } from './books-subscription-examples.service';
 
 @Component({
   selector: 'app-books',
@@ -11,7 +12,8 @@ export class BooksComponent implements OnInit, OnDestroy   {
 
   titles$: Observable<string[]>;
 
-  constructor(private cacheExamples: BookCacheExampleService
+  constructor(private cacheExamples: BookCacheExampleService,
+              private subscriptionsExamples: BookSubscriptionsExampleService
     ) {
 
     /*this.titles$ = this.booksService.fetch({}, {
@@ -34,6 +36,7 @@ export class BooksComponent implements OnInit, OnDestroy   {
 
   unsubscribeAll() {
     this.cacheExamples.unsubscribeAll();
+    this.subscriptionsExamples.unsubscribeRxJsAll();
   }
 
   useCacheAndNetwork1() {
@@ -80,4 +83,8 @@ export class BooksComponent implements OnInit, OnDestroy   {
     this.cacheExamples.useCacheOnly2();
   }
 
+
+  subscribeOnReview() {
+    this.subscriptionsExamples.subscribe();
+  }
 }

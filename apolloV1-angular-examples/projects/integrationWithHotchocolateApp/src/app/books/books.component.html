@@ -20,8 +20,11 @@
 <button (click)="useCacheOnly2()">useCacheOnly2</button>
 <br/>
 <br/>
+<button (click)="subscribeOnReview()">subscribeOnReview</button>
+<br/>
+<br/>
 <button (click)="resetCache()">resetCache</button>
-<button (click)="unsubscribeAll()">unsubscribeAll</button>
+<button (click)="unsubscribeAll()">unsubscribeAll (RXJS)</button>
 <div *ngFor="let title of titles$ | async">
   {{ title }}
 </div>

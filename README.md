@@ -16,6 +16,7 @@
     - [Use generated angular apollo service](#use-generated-angular-apollo-service)
   - [fetch vs watch](#fetch-vs-watch)
   - [Apollo cache](#apollo-cache)
+  - [Subscriptions](#subscriptions)
 
 # apolloV1-angular-examples: integrationWithHotchocolateApp
 
@@ -220,3 +221,43 @@ There are [six cache policies](https://medium.com/@galen.corey/understanding-apo
 * **standby** - only for queries that aren't actively watched, but should be available for refetch and updateQueries.
 
 More about fetch policies [here](https://github.com/apollographql/apollo-client/blob/f08ab2a6d39ca12b1618a1fcabd468fe2a1fb055/src/core/watchQueryOptions.ts#L9).
+
+## Subscriptions
+
+Install necessary packages:
+```
+npm install apollo-link-ws@1.0.20
+npm install apollo-utilities@1.3.4
+npm install subscriptions-transport-ws@0.9.16
+```
+
+Definition of two samples subscriptions are stored in [books.graphql](./books-apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.graphql).
+
+```
+subscription onReviewSubscription {
+  onReview {
+    commentary
+    stars
+    bookId
+  }
+}
+
+subscription onReviewWithBookIdSubscription {
+  onReviewWithBookId(bookId: 5) {
+    commentary
+    stars
+    bookId
+  }
+}
+```
+
+Generate angular apollo services/subscriptions based on these definitions.
+
+Next you can use generated subscriptions. Examples of usage are in service [books-subscription-examples.service.ts](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books-subscription-examples.service.ts).
+
+Click in UI **subscribeOnReview** to subscribe for both subscriptions (**onReviewSubscription** and **onReviewWithBookIdSubscription**). Next create a book using mutation, for example using playground view from the used server:
+
+![create-book](./images/server-playground-create-book.png).
+
+This mutation will trigger subscription onReviewSubscription and onReviewWithBookIdSubscription if the id of created book is 5.
+

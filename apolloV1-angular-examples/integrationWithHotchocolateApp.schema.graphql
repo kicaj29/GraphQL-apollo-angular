@@ -1,5 +1,5 @@
 # source: http://localhost:37926
-# timestamp: Tue Aug 25 2020 12:13:25 GMT+0200 (czas środkowoeuropejski letni)
+# timestamp: Wed Aug 26 2020 16:48:01 GMT+0200 (czas środkowoeuropejski letni)
 
 """The cost directives is used to express the complexity of a field."""
 directive @cost(
@@ -247,4 +247,15 @@ type Query {
   authorFromCache(authorId: Int!): Author
   authors(after: String, before: String, first: PaginationAmount, last: PaginationAmount, where: AuthorFilter): AuthorConnection
   books(after: String, before: String, first: PaginationAmount, last: PaginationAmount, where: BookFilter): BookConnection
+}
+
+type Review {
+  bookId: Int!
+  commentary: String
+  stars: Int!
+}
+
+type Subscription {
+  onReview: Review!
+  onReviewWithBookId(bookId: Int!): Review!
 }
