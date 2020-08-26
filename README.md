@@ -231,7 +231,7 @@ npm install apollo-utilities@1.3.4
 npm install subscriptions-transport-ws@0.9.16
 ```
 
-Definition of two samples subscriptions are stored in [books.graphql](./books-apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.graphql).
+Definition of two samples subscriptions are stored in [books.graphql](./apolloV1-angular-examples/projects/integrationWithHotchocolateApp/src/app/books/books.graphql).
 
 ```
 subscription onReviewSubscription {
